@@ -51,7 +51,7 @@ The code used to generate the results below is available in the following notebo
 * **`log_normal_parameters.ipynb`**: Parametrizes each prediction for each date as a log-normal distribution.  
 * **`compute_the_total_cases.ipynb`**: Computes the total predicted cases for each season.  
 * **`compute_the_scores.ipynb`**: Calculates the WIS score for each model across all states and validation tests.  
-* **`plot_scores.ipynb`**: Generates heatmap tables with WIS scores for each Brazilian macroregion and highlights the best-performing models for both states and macroregions.  
+* **`plot_scores.ipynb`**: Generates heatmap tables with WIS scores for each Brazilian region and highlights the best-performing models for both states and regions.  
 * **`plot_series.ipynb`**: Plots the predicted time series for each model across states and validation tests.  
 
 
@@ -109,15 +109,15 @@ The bar plot below shows the number of states that the model achiveved the best 
 ![Map best models by state](./figures/map_best_model.png)
 
 
-### Best-performing models per macroregion
+### Best-performing models per region
 
-The rank for each macroregion was computed using the equation below:
+The rank for each region was computed using the equation below:
 
 $$R_M = \sum_{i=1}^6 = \frac{1}{R_{i,S}}$$,
 
-where the subscript $i$ refers to the score, the subscript $S$ to the state and the subscript $M$ to the macroregion.
+where the subscript $i$ refers to the score, the subscript $S$ to the state and the subscript $M$ to the region.
 
-The table below presents the top five best-performing models in each macroregion:
+The table below presents the top five best-performing models in each region:
 
 |Rank | North | Northeast | Midwest | Southeast | South |
 |-----| ------| ----------| --------| ----------| ------|
@@ -128,9 +128,9 @@ The table below presents the top five best-performing models in each macroregion
 |5    | 144   | 156       | 133     | 139       | 150   |
 
 
-## WIS scores by macroregion
+## WIS scores by region
 
-The figures below present the WIS scores for each validation test and each state (x-axis) and model (y-axis). The models are ordered from the best macroregional model to the worst. The green rectangle highlights the lowest WIS score in each column.
+The figures below present the WIS scores for each validation test and each state (x-axis) and model (y-axis). The models are ordered from the best regional model to the worst. The green rectangle highlights the lowest WIS score in each column.
 
 
 ### North
@@ -243,9 +243,9 @@ The steps were implemented across different notebooks:
 - Step 4: (WIS plots): `plot_scores.ipynb`  
 
 
-###  Best-performing models per macroregion
+###  Best-performing models per region
 
-The best-performing models were identified by ranking each model according to their WIS in the total cases prediction task, following the same procedure as described in the previous sections. The table below shows the top five models for each macroregion:
+The best-performing models were identified by ranking each model according to their WIS in the total cases prediction task, following the same procedure as described in the previous sections. The table below shows the top five models for each region:
 
 |Rank | North | Northeast | Midwest | Southeast | South |
 |-----| ------| ----------| --------| ----------| ------|
@@ -256,9 +256,9 @@ The best-performing models were identified by ranking each model according to th
 |5    | 139   | 138       | 157     | 137       | 136   |
 
 
-## WIS scores by macroregion
+## WIS scores by region
 
-The figures below present the WIS scores for each validation test and each state (x-axis) and model (y-axis) concerning the total number of cases in the season. The models are ordered from the best macroregional model to the worst. The green rectangle highlights the lowest WIS score in each column.
+The figures below present the WIS scores for each validation test and each state (x-axis) and model (y-axis) concerning the total number of cases in the season. The models are ordered from the best regional model to the worst. The green rectangle highlights the lowest WIS score in each column.
 
 
 ### North
