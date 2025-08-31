@@ -96,9 +96,8 @@ The models initially were ranked according to each score, that is, each model re
 
 
 The rank for each state was computed using the equation below:
-$$
-R_{S} = \sum^{6}_{i=1} = \cfrac{1}{R_i},
-$$
+
+$$R_{S} = \sum_{i=1}^{6} = \frac{1}{R_i},$$
 
 where the subscript $i$ refers to the score and the subscript $S$ to the state.
  
