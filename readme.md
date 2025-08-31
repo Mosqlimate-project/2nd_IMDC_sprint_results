@@ -113,7 +113,7 @@ The bar plot below shows the number of states that the model achiveved the best 
 
 The rank for each macroregion was computed using the equation below:
 
-$$R_M = \sum_{i=1}^5 = \frac{1}{R_{i,S}}$$,
+$$R_M = \sum_{i=1}^6 = \frac{1}{R_{i,S}}$$,
 
 where the subscript $i$ refers to the score, the subscript $S$ to the state and the subscript $M$ to the macroregion.
 
