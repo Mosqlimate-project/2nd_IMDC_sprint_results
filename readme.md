@@ -59,11 +59,12 @@ The code used to generate the results below is available in the following notebo
 The WIS (Weighted Interval Score) score were calculated using the Python package [mosqlient](https://github.com/Mosqlimate-project/mosqlimate-client/tree/main) which captures the predictions from the API and compares them.
 
 The weighted interval score (WIS) is compute using the equation below:
+
 $$
 \text{WIS}(F, y) = \frac{1}{K + 1/2} \left( w_0|y - m| + \sum_{k=1}^K [w_K S^{int}_{\alpha_k} (l_K, u_K; y) ]\right), 
 $$
 
-by default, $ w_k = \frac{\alpha_k}{2}$ and  $w_0 = \frac{1}{2}$. In this equation, $K$ denotes the number of intervals, and $l_k$ and $u_k$ represent the lower and upper bounds of the $k$-th confidence interval, respectively. The implementation defines the $\alpha_k$ values based on the names of the prediction columns.
+by default, $w_k = \frac{\alpha_k}{2}$ and  $w_0 = \frac{1}{2}$. In this equation, $K$ denotes the number of intervals, and $l_k$ and $u_k$ represent the lower and upper bounds of the $k$-th confidence interval, respectively. The implementation defines the $\alpha_k$ values based on the names of the prediction columns.
 
 The $S^{int}_{\alpha_k}$ represent the *Interval score*. It was computed using the formula below: 
 
@@ -112,9 +113,8 @@ The bar plot below shows the number of states that the model achiveved the best 
 ### Best-performing models per macroregion
 
 The rank for each macroregion was computed using the equation below:
-$$
-R_{M} = \sum^{6}_{i=1} = \cfrac{1}{R_{i,S}},
-$$
+
+$$R_M = \sum_{i=1}^5 = \frac{1}{R_{i,S}}$$,
 
 where the subscript $i$ refers to the score, the subscript $S$ to the state and the subscript $M$ to the macroregion.
 
