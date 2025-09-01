@@ -4,7 +4,7 @@ The Infodengue-Mosqlimate Dengue Challenge (IMDC) is an initiative led by the Mo
 
 The objective of this 2025 sprint is **to promote training of predictive models and to develop high-quality ensemble forecast models for dengue in Brazil.**
 
-The challenge involves three validation test and one forecast target. The period of interest spans from the epidemiological week (EW) 41 of one year to EW 40 of the following year, aligning with the typical dengue season in Brazil.
+The challenge involves three validation tests and one forecast target. The period of interest spans from the epidemiological week (EW) 41 of one year to EW 40 of the following year, aligning with the typical dengue season in Brazil.
 
 **Validation test 1.** Predict the weekly number of dengue cases by state (UF) in the 2022-2023 season \[EW 41 2022- EW40 2023\], using data covering the period from EW 01 2010 to EW 25 2022;
 
@@ -16,7 +16,7 @@ The challenge involves three validation test and one forecast target. The period
 
 ## Teams and models
 
-In this 2nd edition, 15 teams were contributed with 19 dengue forecast models for all Brazilian states for the years 2025 and 2026.
+In this 2nd edition, 15 teams contributed with 19 dengue forecast models for all Brazilian states for the years 2025 and 2026.
 
 | Team/Model / Leader | Model ID | Approach | Spatial scale | Variables/datasets | Climate data |
 |----------------------|----------|----------|---------------|--------------------|--------------|
@@ -29,16 +29,16 @@ In this 2nd edition, 15 teams were contributed with 19 dengue forecast models fo
 | [CERI Forecasting Club](https://github.com/graeme-dor/dengue-sprint-2025) — Graeme Dor (CERI Stellenbosch University) | [137](https://api.mosqlimate.org/registry/model/137/) | Ensemble: RF and LSTM per state, lowest RMSE chosen | State | Dengue cases, Temperature, Precipitation, Relative humidity | Yes |
 | [TSMixer ZKI-PH4](https://github.com/DiogoParreira/ZKI-PH) — Diogo Parreira (Robert Koch Institute) | [138](https://api.mosqlimate.org/registry/model/138/) | Time Series Mixer (TSMixer) | Municipality, State | Dengue cases, Climate | Yes |
 | [DengueSprint_Cornell-PEH](https://github.com/anabento/DengueSprint_Cornell-PEH) — Ana Bento (Cornell University) | [139](https://api.mosqlimate.org/registry/model/139/) | Negative Binomial Baseline Model | State | Dengue cases | No |
-| GeoHealth Dengue Forecasting Team — Paula Moraga (KAUST) | [141*](https://api.mosqlimate.org/registry/model/141/) | LSTM with climate covariates | State | Dengue cases, Temperature, Precipitation, Humidity, Pressure, Environmental data | Yes |
-| Strange Attractors Contributor — Marcio Maciel Bastos (FGV/EMAp) | [143](https://api.mosqlimate.org/registry/model/143/) | Bayesian state-level forecasting (Gravity Component + Bayesian Inference) | State | Dengue cases | No |
-| Beat it — Leonardo Bastos (FIOCRUZ) | [144](https://api.mosqlimate.org/registry/model/144/) | Baseline Bayesian model — negative binomial with Gaussian random effects | State, Region | Dengue cases | No |
-| DS_OKSTATE — Lucas Storleman (Oklahoma State University) | [145](https://api.mosqlimate.org/registry/model/145/) | CNN–LSTM hybrid | Municipality, State | Dengue cases, Temperature, Precipitation, Humidity, Pressure, Environmental data | Yes |
-| D-FENSE/LNCC-AR_p-2025-1 — Americo Cunha Jr (LNCC / UERJ) | [150](https://api.mosqlimate.org/registry/model/150/) | AR(p) autoregressive process | State | Dengue cases, Temperature, Precipitation, Humidity, Pressure, Environmental data | Yes |
-| D-FENSE/UERJ-SARIMAX-2025-1 — Americo Cunha Jr (LNCC / UERJ) | [151](https://api.mosqlimate.org/registry/model/151/) | SARIMAX with exogenous inputs | State | Dengue cases, Temperature, Precipitation, Humidity, Pressure, Environmental data | Yes |
-| D-FENSE/LNCC-CliDENGO-2025-1 — Americo Cunha Jr (LNCC / UERJ) | [152](https://api.mosqlimate.org/registry/model/152/) | CLiDENGO (climate-modulated beta-logistic growth model) | State | Dengue cases, Temperature, Precipitation, Humidity, Pressure, Environmental data | Yes |
-| D-FENSE/LNCC-SURGE-2025-1 — Americo Cunha Jr (LNCC / UERJ) | [154](https://api.mosqlimate.org/registry/model/154/) | SURGE (average surge model) | State | Dengue cases, Temperature, Precipitation, Humidity, Pressure, Environmental data | Yes |
-| Dengue oracle M1 — Eduardo Araújo (FGV-EMAP) | [155](https://api.mosqlimate.org/registry/model/155/) | Baseline LSTM with cases, epiweek, population | Municipality, State, Health region | Dengue cases, Temperature, Precipitation, Humidity, Pressure, Environmental data | Yes |
-| Dengue oracle M2 — Eduardo Araújo (FGV/EMAp) | [156](https://api.mosqlimate.org/registry/model/156/) | Baseline LSTM with covariates | Municipality, State, Health region | Dengue cases, Temperature, Precipitation, Humidity, Pressure, Environmental data | Yes |
+| [GeoHealth Dengue Forecasting Team](https://github.com/ChenXiang1998/2025-Infodengue-Sprint) — Paula Moraga (KAUST) | [141*](https://api.mosqlimate.org/registry/model/141/) | LSTM with climate covariates | State | Dengue cases, Temperature, Precipitation, Humidity, Pressure, Environmental data | Yes |
+| [Strange Attractors Contributor](https://github.com/marciomacielbastos/MosqlimateSprint2025) — Marcio Maciel Bastos (FGV/EMAp) | [143](https://api.mosqlimate.org/registry/model/143/) | Bayesian state-level forecasting (Gravity Component + Bayesian Inference) | State | Dengue cases | No |
+| [Beat it](https://github.com/lsbastos/sprint2025) — Leonardo Bastos (FIOCRUZ) | [144](https://api.mosqlimate.org/registry/model/144/) | Baseline Bayesian model — negative binomial with Gaussian random effects | State, Region | Dengue cases | No |
+| [DS_OKSTATE](https://github.com/haridas-das/DS_OKSTATE_2025) — Lucas Storleman (Oklahoma State University) | [145](https://api.mosqlimate.org/registry/model/145/) | CNN–LSTM hybrid | Municipality, State | Dengue cases, Temperature, Precipitation, Humidity, Pressure, Environmental data | Yes |
+| [D-FENSE/LNCC-AR_p-2025-1](https://github.com/americocunhajr/D-FENSE) — Americo Cunha Jr (LNCC / UERJ) | [150](https://api.mosqlimate.org/registry/model/150/) | AR(p) autoregressive process | State | Dengue cases, epiweek | No |
+| [D-FENSE/UERJ-SARIMAX-2025-1](https://github.com/americocunhajr/D-FENSE) — Americo Cunha Jr (LNCC / UERJ) | [157](https://api.mosqlimate.org/registry/model/157/) | SARIMAX with exogenous inputs | State | Dengue cases, weekly temperature median, 52-week rolling mean of precipitation median  | Yes |
+| [D-FENSE/LNCC-CliDENGO-2025-1](https://github.com/americocunhajr/D-FENSE) — Americo Cunha Jr (LNCC / UERJ) | [152](https://api.mosqlimate.org/registry/model/152/) | CLiDENGO (climate-modulated beta-logistic growth model) | State | Dengue cases, temperature (min/mean/max), precipitation (min/mean/max), and relative humidity (min/mean/max) | Yes |
+| [D-FENSE/LNCC-SURGE-2025-1](https://github.com/americocunhajr/D-FENSE) — Americo Cunha Jr (LNCC / UERJ) | [154](https://api.mosqlimate.org/registry/model/154/) | SURGE (average surge model) | State | Dengue cases, epiweek | No |
+| [Dengue oracle M1](https://github.com/eduardocorrearaujo/dengue-oracle) — Eduardo Araújo (FGV-EMAP) | [155](https://api.mosqlimate.org/registry/model/155/) | Baseline LSTM with cases, epiweek, population | Municipality, State, Health region | Dengue cases, epiweek, population | No |
+| [Dengue oracle M2](https://github.com/eduardocorrearaujo/dengue-oracle) — Eduardo Araújo (FGV/EMAp) | [156](https://api.mosqlimate.org/registry/model/156/) | Baseline LSTM with covariates | Municipality, State, Health region | Dengue cases, epiweek, enso value, population, biome predominant | Yes |
 
 \* Models 131 and 141 were not included in the validation results due to methodological or reproducibility issues
 
@@ -56,82 +56,82 @@ The code used to generate the results below is available in the following notebo
 
 
 ## Scores
-The WIS (Weighted Interval Score) score were calculated using the Python package [mosqlient](https://github.com/Mosqlimate-project/mosqlimate-client/tree/main) which captures the predictions from the API and compares them.
+Model performance was evaluated using the Weighted Interval Score (WIS), computed with the [mosqlient](https://github.com/Mosqlimate-project/mosqlimate-client/tree/main) Python package.
+The WIS is a proper scoring rule for probabilistic forecasts
+that balances sharpness and calibration. It summarizes forecast quality by doing a weighted average of the Interval Score (IS) and the absolute error of the median
 
-The weighted interval score (WIS) is compute using the equation below:
-
+The Interval Score for a central prediction interval with miscoverage rate $\alpha_k$ (i.e., coverage $1-\alpha_k$) is:
 $$
-\text{WIS}(F, y) = \frac{1}{K + 1/2} \left( w_0|y - m| + \sum_{k=1}^K [w_K S^{int}_{\alpha_k} (l_K, u_K; y) ]\right), 
-$$
-
-by default, $w_k = \frac{\alpha_k}{2}$ and  $w_0 = \frac{1}{2}$. In this equation, $K$ denotes the number of intervals, and $l_k$ and $u_k$ represent the lower and upper bounds of the $k$-th confidence interval, respectively. The implementation defines the $\alpha_k$ values based on the names of the prediction columns.
-
-The $S^{int}_{\alpha_k}$ represent the *Interval score*. It was computed using the formula below: 
-
-$$
-S^{int}_\alpha(l_i, u_i; y_i) = u_i - l_i + \cfrac{2}{\alpha}(l_i - y_i)I\{y_i < l_i\} + \cfrac{2}{\alpha}(y_i - u_i)I\{y_i > u_i\},
+\text{IS}_{\alpha_k}(F, y) = (u_k - l_k) + \frac{2}{\alpha_k}(l_k - y) I\{y < l_k\} + \frac{2}{\alpha_k}(y - u_k) I\{y > u_k\},
 $$
 
-where $I$ is the indicator function, $\alpha$ the significance level of the interval, $u_i$ the upper value of the interval at week $i$ and $l_i$ the lower value. 
+where
+- $F$ is the forecast cumulative distribution function (CDF)
+- $y$ is the observed value
+- $\alpha_k$ is the miscoverage rate of $F$ for the $k$-th interval
+- $l_k$, $u_k$ are the $1 - \alpha_k/2$ and $1 + \alpha_k/2$ quantiles of $F$, respectively
+- $I\{\cdot\}$ is the indicator function
+
+The WIS is then computed as:
+
+$$
+\text{WIS}_{\alpha_{\{0:K\}}}(F, y) = \frac{1}{K + 1/2} \left( w_0 |y - m| + \sum_{k=1}^K w_k \text{IS}_{\alpha_k}(F, y) \right),
+$$
+
+where
+- $m$ is the predicted median
+- $K$ is the number of prediction intervals
+- $w_0$ is the weight for the median, which is set to 1/2 by default
+- $w_k$ is the weight for the $k$-th interval, which is set to $\alpha_k/2$ by default
 
 
-The scores were calculated for each state and each year, corresponding to validation tests 1, 2, and 3. For each combination of state and year, we averaged the scores over the full time series and within a three-week window centered on the peak. The peak week is defined as the week with the maximum number of probable cases reported in the season.
+Each model in this challenge was evaluated by computing the average WIS for each state and validation test. We assessed model performance using the average WIS over the full period of each validation test (1, 2, and 3).
+
 
 | Average Score S* | Validation test | Score (S) used | Evaluated range |
 | -----------------| ---------------|-----------------| -----------------|
 |𝑆<sub>1</sub> | 1 |WIS |EW41 2022 - EW40 2023  |
 |𝑆<sub>2</sub> | 2 |WIS |EW41 2023 - EW40 2024  |
 |𝑆<sub>3</sub> | 3 |WIS |EW41 2024 - EW25 2025  |
-|𝑆<sub>4</sub> | 1 |WIS |three-week window centered on the peak|
-|𝑆<sub>5</sub> | 2 |WIS |three-week window centered on the peak|
-|𝑆<sub>6</sub> | 3 |WIS |three-week window centered on the peak|
-
-where **S*** is given by the follow equation: 
-
+ 
 ## Ranking
 
-
 ### Best-performing models per state
-The models initially were ranked according to each score, that is, each model received rank $R_1$, $R_2$, …, $R_6$, for each score $S_i$. 
 
+To rank the models within each state, we computed the average WIS across the entire evaluation period, which includes the three validation sets (EW41 2022 – EW25 2025). The model with the lowest average WIS was assigned rank 1, while the model with the highest average WIS was assigned rank 17, with the others ranked accordingly in between.
 
-The rank for each state was computed using the equation below:
-
-$$R_{S} = \sum_{i=1}^{6} = \frac{1}{R_i},$$
-
-where the subscript $i$ refers to the score and the subscript $S$ to the state.
- 
-
-The bar plot below shows the number of states that the model achiveved the best rank in a state.
+The bar plot below shows the number of states that each model achieved the best rank in.
 
 ![Best models by state](./figures/count_best_models_state.png)
 
-![Map best models by state](./figures/map_best_model.png)
+The map below shows the Brazilian states colored according to the model that performed best in each. The state of Espírito Santo (ES) is left uncolored because it was excluded from the analysis.
 
+![Map best models by state](./figures/map_best_model.png)
 
 ### Best-performing models per region
 
-The rank for each region was computed using the equation below:
+The ranking for each region was calculated using the following equation:
 
-$$R_M = \sum_{i=1}^6 = \frac{1}{R_{i,S}}$$,
+$$
+R_{M} = \sum_{n=1}^{N} \frac{1}{R_{n}},
+$$
 
-where the subscript $i$ refers to the score, the subscript $S$ to the state and the subscript $M$ to the region.
+where $n$ indexes the states within the region, $N$ is the total number of states in that region, and $M$ denotes the region as a whole. The state-level ranks $R_{n}$ were computed as described in the previous section. This formulation assigns greater weight to models that ranked among the top performers in individual states, ensuring that consistently high-performing models have a stronger influence on the regional ranking.
 
 The table below presents the top five best-performing models in each region:
 
-|Rank | North | Northeast | Midwest | Southeast | South |
-|-----| ------| ----------| --------| ----------| ------|
-|1    | 157   | 145       | 156     | 156       | 157   |
-|2    | 156   | 135       | 155     | 108       | 137   |
-|3    | 139   | 133       | 157     | 155       | 138   |
-|4    | 150   | 150       | 135     | 135       | 155   |
-|5    | 144   | 156       | 133     | 139       | 150   |
+| Rank | North            | Northeast       | Midwest           | Southeast          | South              |
+|------|------------------|-----------------|-------------------|--------------------|--------------------|
+| 1    | LNN-AR_p-1       | GHR Model       | GHR Model         | Dengue oracle M2   | Dengue Oracle M1   |
+| 2    | Beat it          | LNN-AR_p-1      | LSTM-RF model     | LNCC-SURGE-1       | LSTM-RF model      |
+| 3    | Imperial-TFT Model | Cornell PEH   | Dengue oracle M2  | Dengue oracle M1   | LNN-AR_p-1         |
+| 4    | Dengue Oracle M1 | Imperial-TFT Model | UERJ-SARIMAX-2 | GHR Model          | Beat it            |
+| 5    | Cornell PEH      | CNNLSTM         | Chronos-Bolt      | UERJ-SARIMAX-2     | UERJ-SARIMAX-2     |
 
 
 ## WIS scores by region
 
-The figures below present the WIS scores for each validation test and each state (x-axis) and model (y-axis). The models are ordered from the best regional model to the worst. The green rectangle highlights the lowest WIS score in each column.
-
+The figures below present the WIS scores for each validation test and each state (x-axis) and model (y-axis). **The models are ordered from the best region model to the worst**. The green rectangle highlights the lowest WIS score in each column.
 
 ### North
 
@@ -229,7 +229,17 @@ The figures below show the curves of the submitted predictions by state. The mod
 
 To compute the total number of cases for each season based on the submitted predictions, we applied the following steps:  
 
-1. **Weekly approximation**: For each predicted week in the season, we approximated the distribution as log-normal by fitting the submitted prediction intervals to the CDF of a log-normal distribution through an optimization procedure. When the median was zero, we fixed $\mu = 0.01$ and $\sigma = 0.5$.  
+1. **Weekly approximation**: For each predicted week in the season, we approximated the distribution as log-normal by fitting the submitted prediction intervals to the CDF of a log-normal distribution through an optimization procedure. To compute the parameters, we used the following procedure. Let $L$ denote the number of symmetric prediction intervals available for a given model, and assume that the median $m$ is always provided. In this case, one obtains $J = 2L + 1$ quantiles from the predictive distribution, resulting in a sequence of quantiles $q_j$ with associated probability levels $\gamma_j$.
+
+To estimate the parameters $\theta$ of a log-normal distribution that best fit this sequence of quantiles, we solve the following optimization problem:
+
+$$
+\theta = \argmin_{\theta \in \boldsymbol{\Theta}} \sum_{j=1}^{J} \frac{|q_j - Q_\theta(\gamma_j)|}{|q_j|},
+$$
+
+where $Q_\theta(\gamma_j)$ denotes the $\gamma_j$-quantile of the log-normal distribution with parameters $\theta$.
+
+Quantiles equal to zero are excluded from the optimization when they correspond to percentiles below the median (50th percentile). If the median itself is zero, we fix $\mu = 0.01$ and $\sigma = 0.5$ as as the parameters of the distribution.
 
 2. **Sampling**: Using the $\mu$ and $\sigma$ parameters obtained for each week, we generated 1,000 samples from the log-normal distribution of that week. These weekly samples were then summed across all weeks, resulting in a final array of 1,000 samples representing the total cases for the season.
 
@@ -249,11 +259,11 @@ The best-performing models were identified by ranking each model according to th
 
 |Rank | North | Northeast | Midwest | Southeast | South |
 |-----| ------| ----------| --------| ----------| ------|
-|1    | 157   | 139       | 137     | 156       | 157   |
-|2    | 150   | 145       | 135     | 108       | 137   |
-|3    | 154   | 154       | 139     | 155       | 134   |
-|4    | 143   | 152       | 144     | 143       | 156   |
-|5    | 139   | 138       | 157     | 137       | 136   |
+|1    | UERJ-SARIMAX-2   | Cornell PEH       | LSTM-RF model     | Dengue oracle M2       | UERJ-SARIMAX-2   |
+|2    | LNN-AR_p-1   | CNNLSTM       | GHR Model     | IMPA-TECH       | LSTM-RF model   |
+|3    | LNCC-SURGE-1   | LNCC-SURGE-1       | Cornell PEH     | Dengue Oracle M1       | ISI_Dengue_Model   |
+|4    | Model fourier-gravidade   | LNCC-CLIDENGO-1       | Beat it     | Model fourier-gravidade       | Dengue oracle M2   |
+|5    | Cornell PEH   | TSMixer ZKI-PH4       | UERJ-SARIMAX-2     | LSTM-RF model    | Imperial-TFT Model   |
 
 
 ## WIS scores by region
@@ -286,7 +296,7 @@ The figures below present the WIS scores for each validation test and each state
 
 ### Plots
 
-The figures below display the total number of cases predicted by each model using a parametric approximation to a log-normal distribution. The error bars represent the 95% prediction intervals. Red points and bars indicate models whose 95% prediction intervals did not capture the observed number of cases, while green points and bars indicate models whose intervals did include the observed value.
+The figures below display the total number of cases predicted by each model using a parametric approximation to a log-normal distribution. The error bars represent the 95% prediction intervals. Red points and bars indicate models whose 95% prediction intervals did not capture the observed number of cases, while green points and bars indicate models whose intervals did include the observed values.
 
 ### North 
 
