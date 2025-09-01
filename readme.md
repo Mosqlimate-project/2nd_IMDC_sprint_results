@@ -4,7 +4,7 @@ The Infodengue-Mosqlimate Dengue Challenge (IMDC) is an initiative led by the Mo
 
 The objective of this 2025 sprint is **to promote training of predictive models and to develop high-quality ensemble forecast models for dengue in Brazil.**
 
-The challenge involves three validation test and one forecast target. The period of interest spans from the epidemiological week (EW) 41 of one year to EW 40 of the following year, aligning with the typical dengue season in Brazil.
+The challenge involves three validation tests and one forecast target. The period of interest spans from the epidemiological week (EW) 41 of one year to EW 40 of the following year, aligning with the typical dengue season in Brazil.
 
 **Validation test 1.** Predict the weekly number of dengue cases by state (UF) in the 2022-2023 season \[EW 41 2022- EW40 2023\], using data covering the period from EW 01 2010 to EW 25 2022;
 
@@ -16,7 +16,7 @@ The challenge involves three validation test and one forecast target. The period
 
 ## Teams and models
 
-In this 2nd edition, 15 teams were contributed with 19 dengue forecast models for all Brazilian states for the years 2025 and 2026.
+In this 2nd edition, 15 teams contributed with 19 dengue forecast models for all Brazilian states for the years 2025 and 2026.
 
 | Team/Model / Leader | Model ID | Approach | Spatial scale | Variables/datasets | Climate data |
 |----------------------|----------|----------|---------------|--------------------|--------------|
@@ -56,53 +56,69 @@ The code used to generate the results below is available in the following notebo
 
 
 ## Scores
-The WIS (Weighted Interval Score) score were calculated using the Python package [mosqlient](https://github.com/Mosqlimate-project/mosqlimate-client/tree/main) which captures the predictions from the API and compares them.
 
-The weighted interval score (WIS) is compute using the equation below:
+Model performance was evaluated using the Weighted Interval Score (WIS), computed with the [mosqlient](https://github.com/Mosqlimate-project/mosqlimate-client/tree/main) Python package.
+The WIS is a proper scoring rule for probabilistic forecasts
+that balances sharpness and calibration. It summarizes forecast quality by doing a weighted average of the Interval Score (IS) and the absolute error of the median.
+
+The Interval Score for a central prediction interval with miscoverage rate $\alpha_k$ (i.e., coverage $1-\alpha_k$) is:
+$$
+\text{IS}_{\alpha_k}(F, y) = (u_k - l_k) + \frac{2}{\alpha_k}(l_k - y) I\{y < l_k\} + \frac{2}{\alpha_k}(y - u_k) I\{y > u_k\},
+$$
+where
+- $F$ is the forecast cumulative distribution function (CDF)
+- $y$ is the observed value
+- $\alpha_k$ is the miscoverage rate of $F$ for the $k$-th interval
+- $l_k$, $u_k$ are the $1 - \alpha_k/2$ and $1 + \alpha_k/2$ quantiles of $F$, respectively
+- $I\{\cdot\}$ is the indicator function
+
+The WIS is then computed as:
 
 $$
-\text{WIS}(F, y) = \frac{1}{K + 1/2} \left( w_0|y - m| + \sum_{k=1}^K [w_K S^{int}_{\alpha_k} (l_K, u_K; y) ]\right), 
+\text{WIS}_{\alpha_{\{0:K\}}}(F, y) = \frac{1}{K + 1/2} \left( w_0 |y - m| + \sum_{k=1}^K w_k \text{IS}_{\alpha_k}(F, y) \right),
 $$
 
-by default, $w_k = \frac{\alpha_k}{2}$ and  $w_0 = \frac{1}{2}$. In this equation, $K$ denotes the number of intervals, and $l_k$ and $u_k$ represent the lower and upper bounds of the $k$-th confidence interval, respectively. The implementation defines the $\alpha_k$ values based on the names of the prediction columns.
-
-The $S^{int}_{\alpha_k}$ represent the *Interval score*. It was computed using the formula below: 
-
-$$
-S^{int}_\alpha(l_i, u_i; y_i) = u_i - l_i + \cfrac{2}{\alpha}(l_i - y_i)I\{y_i < l_i\} + \cfrac{2}{\alpha}(y_i - u_i)I\{y_i > u_i\},
-$$
-
-where $I$ is the indicator function, $\alpha$ the significance level of the interval, $u_i$ the upper value of the interval at week $i$ and $l_i$ the lower value. 
+where
+- $m$ is the predicted median
+- $K$ is the number of prediction intervals
+- $w_0$ is the weight for the median, which is set to 1/2 by default
+- $w_k$ is the weight for the $k$-th interval, which is set to $\alpha_k/2$ by default
 
 
-The scores were calculated for each state and each year, corresponding to validation tests 1, 2, and 3. For each combination of state and year, we averaged the scores over the full time series and within a three-week window centered on the peak. The peak week is defined as the week with the maximum number of probable cases reported in the season.
+Each model in this challenge was evaluated by computing the average WIS for each state and validation test. We assessed model performance in two ways:
 
-| Average Score S* | Validation test | Score (S) used | Evaluated range |
-| -----------------| ---------------|-----------------| -----------------|
-|𝑆<sub>1</sub> | 1 |WIS |EW41 2022 - EW40 2023  |
-|𝑆<sub>2</sub> | 2 |WIS |EW41 2023 - EW40 2024  |
-|𝑆<sub>3</sub> | 3 |WIS |EW41 2024 - EW25 2025  |
-|𝑆<sub>4</sub> | 1 |WIS |three-week window centered on the peak|
-|𝑆<sub>5</sub> | 2 |WIS |three-week window centered on the peak|
-|𝑆<sub>6</sub> | 3 |WIS |three-week window centered on the peak|
+1. **Full validation test:** Average WIS over the full period of each validation test (1, 2, and 3).
+2. **Around the seasonal peak:** Average WIS within a three-week window centered on the peak week of dengue cases.
 
-where **S*** is given by the follow equation: 
+The evaluation produced six distinct WIS scores for each model ($\text{Model}_i$) in each state ($\text{State}_j$), summarized in the table below:
+
+**Table: $\text{Model}_i$ x $\text{State}_j$ — WIS Scores**
+
+| Score   | Formula                                                                 | Validation Test Range                                 |
+|---------|-------------------------------------------------------------------------|-----------------------------------------------------|
+| $S_1$   | Average WIS over the full period of Validation Test 1 | EW41 2022 - EW40 2023                               |
+| $S_2$   | Average WIS over the full period of Validation Test 2 | EW41 2023 - EW40 2024                               |
+| $S_3$   | Average WIS over the full period of Validation Test 3 | EW41 2024 - EW25 2025                               |
+| $S_4$   | Average WIS over three-week window centered on the peak | EW41 2022 - EW40 2023                               |
+| $S_5$   | Average WIS over three-week window centered on the peak | EW41 2023 - EW40 2024                               |
+| $S_6$   | Average WIS over three-week window centered on the peak | EW41 2024 - EW25 2025                               |
 
 ## Ranking
 
-
 ### Best-performing models per state
-The models initially were ranked according to each score, that is, each model received rank $R_1$, $R_2$, …, $R_6$, for each score $S_i$. 
 
+For each state, we ranked the models by first computing separate rankings for each of the six WIS scores ($S_1$ to $S_6$). Each model received a rank $R_{m,i,\text{state}}$ for score $i$ in that state.
 
-The rank for each state was computed using the equation below:
+The final rank for each model in each state was then computed using the formula:
 
-$$R_{S} = \sum_{i=1}^{6} = \frac{1}{R_i},$$
+$$R_{m,\text{state}} = \sum_{i=1}^{6} \frac{1}{R_{m,i,\text{state}}}$$
 
-where the subscript $i$ refers to the score and the subscript $S$ to the state.
- 
+where:
+- $m$ indexes the model
+- $i$ indexes the score ($S_1$ to $S_6$)
+- $\text{state}$ refers to the specific state being evaluated
 
-The bar plot below shows the number of states that the model achiveved the best rank in a state.
+The bar plot below shows the number of states that each model achieved the best rank in.
 
 ![Best models by state](./figures/count_best_models_state.png)
 
@@ -113,7 +129,7 @@ The bar plot below shows the number of states that the model achiveved the best 
 
 The rank for each region was computed using the equation below:
 
-$$R_M = \sum_{i=1}^6 = \frac{1}{R_{i,S}}$$,
+$$R_M = \sum_{i=1}^6 \frac{1}{R_{i,S}},$$
 
 where the subscript $i$ refers to the score, the subscript $S$ to the state and the subscript $M$ to the region.
 
@@ -286,7 +302,7 @@ The figures below present the WIS scores for each validation test and each state
 
 ### Plots
 
-The figures below display the total number of cases predicted by each model using a parametric approximation to a log-normal distribution. The error bars represent the 95% prediction intervals. Red points and bars indicate models whose 95% prediction intervals did not capture the observed number of cases, while green points and bars indicate models whose intervals did include the observed value.
+The figures below display the total number of cases predicted by each model using a parametric approximation to a log-normal distribution. The error bars represent the 95% prediction intervals. Red points and bars indicate models whose 95% prediction intervals did not capture the observed number of cases, while green points and bars indicate models whose intervals did include the observed values.
 
 ### North 
 
