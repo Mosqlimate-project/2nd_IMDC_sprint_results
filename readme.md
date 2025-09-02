@@ -73,10 +73,14 @@ where
 
 The WIS is then computed as:
 
-$$ \textrm{WIS}_{\alpha_{\{0:K\}}}(F, y) = \frac{1}{K + 1/2} \left( w_0 |y - m| + \sum_{k=1}^K w_k \textrm{IS}_{\alpha_k}(F, y) \right),$$
+
+$$\textrm{WIS}_{\alpha_A}(F, y)=$$
+
+$$\frac{1}{K + 1/2} \left( w_0 |y - m| + \sum_{k=1}^K w_k \textrm{IS}_{\alpha_k}(F, y) \right),$$
 
 where
 - $m$ is the predicted median
+- A is the interval $[0:K]$
 - $K$ is the number of prediction intervals
 - $w_0$ is the weight for the median, which is set to 1/2 by default
 - $w_k$ is the weight for the $k$-th interval, which is set to $\alpha_k/2$ by default
