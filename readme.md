@@ -224,9 +224,24 @@ The figures below show the curves of the submitted predictions by state. The mod
 
 ![preds SC](./figures/preds_SC.png)
 
+## Additional Analysis I: Models' Performance in Predicting the Peak of Cases
+
+To assess model performance in predicting the epidemic peak, we defined the peak as the week with the maximum number of probable cases in each state and validation test. Model performance was then evaluated using the average WIS within a three-week window centered on the peak.  
+
+Consistent with the procedure described above for identifying the best model by state, we computed the regional ranking based on the average WIS across the three validation tests, and then aggregated the state-level ranks to obtain the regional rank.  
+
+The table below presents the five best-performing models for predicting the peak of cases in each region:
+
+| Rank | Northeast          | Southeast         | South             | Midwest     | North                 |
+|------|-------------------|-----------------|------------------|------------------|-----------------------|
+| 1    | GHR Model         | IMPA-TECH       | LSTM-RF model    | GHR Model        | Dengue oracle M2      |
+| 2    | Dengue oracle M2  | GHR Model       | Beat it          | LSTM-RF model    | Cornell PEH           |
+| 3    | LNCC-AR_p-1       | LNCC-SURGE-1    | UERJ-SARIMAX-2   | Chronos-Bolt     | Model fourier-gravidade |
+| 4    | Dengue Oracle M1  | Dengue oracle M2| LNCC-SURGE-1     | UERJ-SARIMAX-2   | Dengue Oracle M1      |
+| 5    | Imperial-TFT Model| Dengue Oracle M1| Dengue Oracle M1 | Dengue Oracle M1 | Imperial-TFT Model    |
 
 
-## Additional Analysis: Models' performance in predicting total cases 
+## Additional Analysis II: Models' performance in predicting total cases 
 
 To compute the total number of cases for each season based on the submitted predictions, we applied the following steps:  
 
@@ -256,15 +271,17 @@ The steps were implemented across different notebooks:
 
 ###  Best-performing models per region
 
-The best-performing models were identified by ranking each model according to their WIS in the total cases prediction task, following the same procedure as described in the previous sections. The table below shows the top five models for each region:
+Best-performing models were identified by ranking models according to their mean WIS for the "total cases" prediction task across the three validation tests, using the procedure detailed in the preceding sections. The table below lists the five top-performing models per region:
 
-|Rank | North | Northeast | Midwest | Southeast | South |
-|-----| ------| ----------| --------| ----------| ------|
-|1    | UERJ-SARIMAX-2   | Cornell PEH       | LSTM-RF model     | Dengue oracle M2       | UERJ-SARIMAX-2   |
-|2    | LNN-AR_p-1   | CNNLSTM       | GHR Model     | IMPA-TECH       | LSTM-RF model   |
-|3    | LNCC-SURGE-1   | LNCC-SURGE-1       | Cornell PEH     | Dengue Oracle M1       | ISI_Dengue_Model   |
-|4    | Model fourier-gravidade   | LNCC-CLIDENGO-1       | Beat it     | Model fourier-gravidade       | Dengue oracle M2   |
-|5    | Cornell PEH   | TSMixer ZKI-PH4       | UERJ-SARIMAX-2     | LSTM-RF model    | Imperial-TFT Model   |
+
+| Rank | Northeast          | Southeast          | South             | Midwest      | North                 |
+|------|-------------------|------------------|------------------|--------------------|-----------------------|
+| 1    | Cornell PEH       | Dengue oracle M2 | LSTM-RF model    | LSTM-RF model      | Imperial-TFT Model    |
+| 2    | LNCC-CLIDENGO-1   | LSTM-RF model    | LNCC-SURGE-1     | GHR Model          | Cornell PEH           |
+| 3    | GHR Model         | Dengue Oracle M1 | Dengue Oracle M1 | ISI_Dengue_Model   | Model fourier-gravidade |
+| 4    | Imperial-TFT Model| LNCC-SURGE-1     | Dengue oracle M2 | Imperial-TFT Model | GHR Model             |
+| 5    | Model fourier-gravidade | GHR Model | ISI_Dengue_Model | UERJ-SARIMAX-2     | LNCC-AR_p-1           |
+
 
 
 ## WIS scores by region
