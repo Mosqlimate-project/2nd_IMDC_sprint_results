@@ -1,0 +1,7 @@
+Nordeste,Sudeste,Sul,Centro-Oeste,Norte
+GHR Model,IMPA-TECH,LSTM-RF model,GHR Model,Dengue oracle M2
+Dengue oracle M2,GHR Model,Beat it,LSTM-RF model,Cornell PEH
+LNCC-AR_p-1,LNCC-SURGE-1,UERJ-SARIMAX-2,Chronos-Bolt,"Model fourier-
+ gravidade"
+Dengue Oracle M1,Dengue oracle M2,LNCC-SURGE-1,UERJ-SARIMAX-2,Dengue Oracle M1
+Imperial-TFT Model,Dengue Oracle M1,Dengue Oracle M1,Dengue Oracle M1,Imperial-TFT Model
