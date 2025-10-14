@@ -29,7 +29,7 @@ In this 2nd edition, 15 teams contributed with 19 dengue forecast models for all
 | [Imperial College London](https://github.com/hadrianang/imperial-mosqlimate-sprint2025) — Hadrian Ang ([Imperial College London](https://github.com/hadrianang/imperial-mosqlimate-sprint2025)) | Imperial-TFT Model |[136](https://api.mosqlimate.org/registry/model/136/) | Temporal Fusion Transformer (TFT), deep-learning + Random Forest for climate variables | State | Dengue cases, Temperature, Precipitation, Pressure, Relative humidity, Koppen climate classification, Brazilian biomes | Yes |
 | [CERI Forecasting Club](https://github.com/graeme-dor/dengue-sprint-2025) — Graeme Dor (CERI Stellenbosch University) | LSTM-RF model|[137](https://api.mosqlimate.org/registry/model/137/) | Ensemble: RF and LSTM per state, lowest RMSE chosen | State | Dengue cases, Temperature, Precipitation, Relative humidity | Yes |
 | [TSMixer ZKI-PH4](https://github.com/DiogoParreira/ZKI-PH) — Diogo Parreira (Robert Koch Institute) | TSMixer ZKI-PH4|[138](https://api.mosqlimate.org/registry/model/138/) | Time Series Mixer (TSMixer) | Municipality, State | Dengue cases, Climate | Yes |
-| [DengueSprint_Cornell-PEH](https://github.com/anabento/DengueSprint_Cornell-PEH) — Ana Bento (Cornell University) | Cornell PEH| [139](https://api.mosqlimate.org/registry/model/139/) | Negative Binomial Baseline Model | State | Dengue cases | No |
+| [DengueSprint_Cornell-PEH](https://github.com/anabento/DengueSprint_Cornell-PEH) — Ana Bento (Cornell University) | Cornell PEH| [158**](https://api.mosqlimate.org/registry/model/158/) | Negative Binomial Baseline Model | State | Dengue cases | No |
 | [GeoHealth Dengue Forecasting Team](https://github.com/ChenXiang1998/2025-Infodengue-Sprint) — Paula Moraga (KAUST) | Kaust GeoHealth| [141*](https://api.mosqlimate.org/registry/model/141/) | LSTM with climate covariates | State | Dengue cases, Temperature, Precipitation, Humidity, Pressure, Environmental data | Yes |
 | [Strange Attractors Contributor](https://github.com/marciomacielbastos/MosqlimateSprint2025) — Marcio Maciel Bastos (FGV/EMAp) |Model fourier-gravidade| [143](https://api.mosqlimate.org/registry/model/143/) | Bayesian state-level forecasting (Gravity Component + Bayesian Inference) | State | Dengue cases | No |
 | [Beat it](https://github.com/lsbastos/sprint2025) — Leonardo Bastos (FIOCRUZ) | Beat it|[144](https://api.mosqlimate.org/registry/model/144/) | Baseline Bayesian model — negative binomial with Gaussian random effects | State, Region | Dengue cases | No |
@@ -42,6 +42,9 @@ In this 2nd edition, 15 teams contributed with 19 dengue forecast models for all
 | [Dengue oracle M2](https://github.com/eduardocorrearaujo/dengue-oracle) — Eduardo Araújo (FGV/EMAp) | Dengue Oracle M1| [156](https://api.mosqlimate.org/registry/model/156/) | Baseline LSTM with covariates | Municipality, State, Health region | Dengue cases, epiweek, enso value, population, biome predominant | Yes |
 
 \* Models 131 and 141 were not included in the validation results due to methodological or reproducibility issues
+
+\** Initially, this model was associated with ID 139. However, during the 2026 forecast submission, an error in the modeling process was identified. A corrected model was then submitted, with all validation results and forecasts reassigned to model ID 158.
+
 
 # Scoring and Ranking
 
@@ -122,14 +125,13 @@ where $n$ indexes the states within the region, $N$ is the total number of state
 
 The table below presents the top five best-performing models in each region:
 
-| Rank | North            | Northeast       | Midwest           | Southeast          | South              |
-|------|------------------|-----------------|-------------------|--------------------|--------------------|
-| 1    | LNCC-AR_p-1       | GHR Model       | GHR Model         | Dengue oracle M2   | Dengue Oracle M1   |
-| 2    | Beat it          | LNCC-AR_p-1      | LSTM-RF model     | LNCC-SURGE-1       | LSTM-RF model      |
-| 3    | Imperial-TFT Model | Cornell PEH   | Dengue oracle M2  | Dengue oracle M1   | LNCC-AR_p-1         |
-| 4    | Dengue Oracle M1 | Imperial-TFT Model | UERJ-SARIMAX-2 | GHR Model          | Beat it            |
-| 5    | Cornell PEH      | CNNLSTM         | Chronos-Bolt      | UERJ-SARIMAX-2     | UERJ-SARIMAX-2     |
-
+| Rank  | North             | Northeast        | Midwest           | Southeast          | South             |
+|---|------------------|------------------|------------------|-------------------|------------------|
+| 1 | LNCC-AR_p-1      | GHR Model        | GHR Model        | Dengue oracle M2  | Dengue Oracle M1 |
+| 2 | Beat it          | LNCC-AR_p-1      | LSTM-RF model    | LNCC-SURGE-1      | LSTM-RF model    |
+| 3 | Imperial-TFT Model| Cornell PEH      | Dengue oracle M2 | Dengue Oracle M1  | LNCC-AR_p-1      |
+| 4 | Dengue Oracle M1 | Imperial-TFT Model| UERJ-SARIMAX-2   | GHR Model         | Beat it          |
+| 5 | Cornell PEH      | CNNLSTM          | Chronos-Bolt     | Cornell PEH       | UERJ-SARIMAX-2   |
 
 ## WIS scores by region
 
@@ -233,13 +235,13 @@ Consistent with the procedure described above for identifying the best model by 
 
 The table below presents the five best-performing models for predicting the peak of cases in each region:
 
-| Rank | Northeast          | Southeast         | South             | Midwest     | North                 |
-|------|-------------------|-----------------|------------------|------------------|-----------------------|
-| 1    | GHR Model         | IMPA-TECH       | LSTM-RF model    | GHR Model        | Dengue oracle M2      |
-| 2    | Dengue oracle M2  | GHR Model       | Beat it          | LSTM-RF model    | Cornell PEH           |
-| 3    | LNCC-AR_p-1       | LNCC-SURGE-1    | UERJ-SARIMAX-2   | Chronos-Bolt     | Model fourier-gravidade |
-| 4    | Dengue Oracle M1  | Dengue oracle M2| LNCC-SURGE-1     | UERJ-SARIMAX-2   | Dengue Oracle M1      |
-| 5    | Imperial-TFT Model| Dengue Oracle M1| Dengue Oracle M1 | Dengue Oracle M1 | Imperial-TFT Model    |
+| Rank  | North              | Northeast        | Midwest           | Southeast          | South             |
+|---|-------------------|------------------|------------------|-------------------|------------------|
+| 1 | Dengue oracle M2  | GHR Model        | GHR Model        | IMPA-TECH         | LSTM-RF model    |
+| 2 | Cornell PEH       | Dengue oracle M2 | LSTM-RF model    | GHR Model         | Beat it          |
+| 3 | Model fourier- gravidade | LNCC-AR_p-1     | Chronos-Bolt     | LNCC-SURGE-1      | UERJ-SARIMAX-2   |
+| 4 | Dengue Oracle M1  | Dengue Oracle M1 | UERJ-SARIMAX-2   | Dengue oracle M2  | LNCC-SURGE-1     |
+| 5 | Imperial-TFT Model| Imperial-TFT Model| Dengue Oracle M1 | Dengue Oracle M1  | Dengue Oracle M1 |
 
 
 ## Additional Analysis II: Models' performance in predicting total cases 

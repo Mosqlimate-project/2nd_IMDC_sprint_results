@@ -1,6 +1,6 @@
 ,Nordeste,Sudeste,Sul,Centro-Oeste,Norte
-0,135,156,155,135,150
-1,150,154,137,137,144
-2,139,155,150,156,136
-3,136,135,144,157,155
-4,145,157,157,133,139
+0,GHR Model,Dengue oracle M2,Dengue Oracle M1,GHR Model,LNCC-AR_p-1
+1,LNCC-AR_p-1,LNCC-SURGE-1,LSTM-RF model,LSTM-RF model,Beat it
+2,Cornell PEH,Dengue Oracle M1,LNCC-AR_p-1,Dengue oracle M2,Imperial-TFT Model
+3,Imperial-TFT Model,GHR Model,Beat it,UERJ-SARIMAX-2,Dengue Oracle M1
+4,CNNLSTM,Cornell PEH,UERJ-SARIMAX-2,Chronos-Bolt,Cornell PEH
