@@ -1,4 +1,5 @@
 # 2nd Infodengue-Mosqlimate Dengue Challenge (IMDC): 2025 Sprint for dengue fever forecasts for Brazil
+[![DOI](https://zenodo.org/badge/1047093580.svg)](https://doi.org/10.5281/zenodo.17272503)
 
 The Infodengue-Mosqlimate Dengue Challenge (IMDC) is an initiative led by the Mosqlimate and Infodengue in collaboration with the Harmonize and IDExtremes projects.
 
