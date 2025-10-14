@@ -165,7 +165,12 @@ where $Q_\theta(\gamma_j)$ denotes the $\gamma_j$-quantile of the log-normal dis
 
 Quantiles equal to zero are excluded from the optimization when they correspond to percentiles below the median (50th percentile). If the median itself is zero, we fix $\mu = 0.01$ and $\sigma = 0.5$ as as the parameters of the distribution.
 
-2. **Sampling method** 
+2. **Sampling method.** In order to sample paths from probabilistic forecasts, we use Gaussian Copulas to generate time-dependent paths.
+The dependence structure is imposed via the autocorrelation parameter $\rho$ estimated from the historical series.
+The process transforms the sampled values into uniform quantiles and then into correlated Gaussian variables,
+generating new values through a linear relationship $Z_{t+1} = \rho Z_t + \sqrt{1-\rho^2}\varepsilon_t$. The values are then
+mapped back to the original marginals, producing sample paths that preserve the predicted distributions
+and that have a temporal dependence structure similar to the historical data. 
 
 The figure below shows the cumulative incidence from the last season (2025), along with the 90% prediction intervals for the ensemble (blue) and individual model (red) predictions for 2026. 
 
