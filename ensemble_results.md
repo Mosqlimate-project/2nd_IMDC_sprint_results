@@ -112,7 +112,7 @@ To assess the performance of ensembles with fewer members, the figure below pres
 
 ### Ensemble (Top 5) vs Individual Models
 
-The figure below shows the Skill Scores (SS) of an ensemble composed of the top 5 best-performing models from validation tests 1 and 2, compared to each individual model. Both the ensemble and individual models are evaluated using predictions and scores from validation test 3. Orange dots indicate positive SS values, while models with SS below 0 are highlighted using distinct colors and markers, with their names and corresponding states emphasized in the legend. In all states, the ensemble outperforms the majority—or in some cases all—of the individual models.
+The figure below shows the Skill Scores (SS) of an ensemble composed of the top 5 best-performing models from validation tests 1 and 2, compared to each individual model. Both the ensemble and individual models are evaluated using predictions and scores from validation test 3.  Orange dots indicate positive SS values, while blue dots indicate negative values. Models with SS below –1 are highlighted using distinct colors and markers, with their names and corresponding states emphasized in the legend. In most states, the ensemble model outperforms the majority of individual models.
 
 ![](figures/ss_vs_ind_model_top5.png)
 
