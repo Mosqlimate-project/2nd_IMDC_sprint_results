@@ -97,7 +97,7 @@ where:
 
 In the figure below, each panel corresponds to a validation set, and each point represents the Skill Score (SS) of the ensemble—computed as the median across all models—compared to individual models in terms of $\text{WIS}^{\text{norm}}$. Orange dots indicate positive SS values, while blue dots indicate negative values. Models with SS below –1 are highlighted using distinct colors and markers, with their names, along with the corresponding states, emphasized in the legend.
 
-Overall, there are cases where the ensemble outperforms all individual models, such as RR, AP, ES, and RN in 2023; PR, RS, SP, and DF in 2024; and DF, CE, SE, and RO in 2025. There are also situations where the ensemble outperforms approximately half of the models, for example MG, SP, DF, GO, and MT in 2023; MT, MS, AL, PE, and PI in 2024; and GO, PI, and PA in 2025.
+Overall, there are cases where the ensemble outperforms most individual models, such as SE, RJ, SP, and BA in 2023; RN, RO, and TO in 2024; and PR, RS, and MT in 2025. There are also situations where the ensemble outperforms approximately half of the models, for example PR, MG, and RO in 2023; MG, PR, RJ and RS in 2024.
 ![](figures/ss_vs_ind_model.png)
 
 ---
