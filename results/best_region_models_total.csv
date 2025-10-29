@@ -1,8 +1,7 @@
 Nordeste,Sudeste,Sul,Centro-Oeste,Norte
-Cornell PEH,Dengue oracle M2,LSTM-RF model,LSTM-RF model,Imperial-TFT Model
-LNCC-CLIDENGO-1,LSTM-RF model,LNCC-SURGE-1,GHR Model,Cornell PEH
-GHR Model,Dengue Oracle M1,Dengue Oracle M1,ISI_Dengue_Model,"Model fourier-
- gravidade"
-Imperial-TFT Model,LNCC-SURGE-1,Dengue oracle M2,Imperial-TFT Model,GHR Model
-"Model fourier-
- gravidade",GHR Model,ISI_Dengue_Model,UERJ-SARIMAX-2,LNCC-AR_p-1
+LNN-AR_p-1,Dengue oracle M2,LSTM-RF model,GHR Model,LNN-AR_p-1
+GHR Model,LNCC-SURGE-1,Dengue Oracle M1,LSTM-RF model,GHR Model
+Cornell PEH,LSTM-RF model,Dengue oracle M2,LNN-AR_p-1,Imperial-TFT Model
+CNNLSTM,Dengue Oracle M1,TSMixer ZKI-PH4,UERJ-SARIMAX-2,Dengue Oracle M1
+Imperial-TFT Model,GHR Model,Beat it,Imperial-TFT Model,"Model fourier-
+gravidade"
