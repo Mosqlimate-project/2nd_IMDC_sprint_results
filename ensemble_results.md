@@ -57,6 +57,28 @@ where:
 - $\text{WIS}_t$: Weighted Interval Score for week *t*  
 - $Y_\text{total}$: Total number of cases in the period  
 - $T$: Total number of weeks in the validation period  
+
+The figures below present, for each region, the three highest-ranked models based on their performance in each state (using $\text{WIS}^{\text{norm}}$).
+
+South region: 
+
+<img src="figures/medals_south.png" width="500">
+
+Southeast region: 
+
+<img src="figures/medals_southeast.png" width="500">
+
+Midwest region: 
+
+<img src="figures/medals_midwest.png" width="500">
+
+Northeast region: 
+
+<img src="figures/medals_northeast.png" width="1000">
+
+North region: 
+
+<img src="figures/medals_north.png" width="1000">
 ---
 
 ### Forecast Puzzle
@@ -185,9 +207,12 @@ The map and table below show, by state, the percentage ratio between the cumulat
 
 ### Access to data
 
-The figure presenting the ranking of the models was produced with the notebook `compute_the_scores_norm.ipynb`. The weekly ensemble forecasts are available in the file `predictions/ensemble_median_2026.csv.gz`, and the corresponding cumulative values can be found in `ensemble_median_2026_cum_cases.csv.gz`.
-The notebook used to generate these files is `ensemble_2026.ipynb`, while the figures presented in the forecast report were produced using `plot_ensemble_reports.ipynb`.
-Forecasts produced by each individual model can be accessed through the Mosqlimate API—please refer to our documentation for further details. They are saved at the file `predictions/forecasts_2nd_sprint_update.csv.gz`. 
+To download the forecasts of the individual models, run the notebook `download_forecasts.ipynb` which fetches the data from the Mosqlimate API. The resulting data are saved in `predictions/forecasts_2nd_sprint_update.csv.gz`. 
+
+The figure showing the ranking of the models was generated using the notebook `compute_the_scores_norm.ipynb`, and the colored tables of the best models were produced with the notebook `medal_board.ipynb`.
+
+Weekly ensemble forecasts are available in `predictions/ensemble_median_2026.csv.gz`, and the corresponding cumulative values can be found in `ensemble_median_2026_cum_cases.csv.gz`. The notebook used to generate these files is `ensemble_2026.ipynb`, while the figures presented in the forecast report were produced using `plot_ensemble_reports.ipynb`.
+
 
 ### Important Dates
 

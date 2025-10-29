@@ -15,6 +15,8 @@ The challenge involves three validation tests and one forecast target. The perio
 
 **Forecast.** Predict the weekly number of dengue cases in Brazil, and by state (UF), in the 2025-2026 season \[EW 41 2025- EW40 2026\], using data covering the period from EW 01 2010 to EW 25 2025;
 
+**This file presents the models’ performance on the validation data. The forecast results for the 2026 season are available [here](https://github.com/Mosqlimate-project/2nd_IMDC_sprint_results/blob/main/ensemble_results.md).**
+
 ## Teams and models
 
 In this 2nd edition, 15 teams contributed with 19 dengue forecast models for all Brazilian states for the years 2025 and 2026.
@@ -53,7 +55,8 @@ The code used to generate the results below is available in the following notebo
 * **`val_preds.ipynb`**: Validates whether the submitted predictions meet all the requirements.  
 * **`load_the_predictions.ipynb`**: Loads the predictions submitted by all models and saves them into a CSV file.  
 * **`log_normal_parameters.ipynb`**: Parametrizes each prediction for each date as a log-normal distribution.  
-* **`compute_the_total_cases.ipynb`**: Computes the total predicted cases for each season.  
+* **`compute_the_total_cases.ipynb`**: Computes the total predicted cases for each season. 
+* **`plot_total_cases_results.ipynb`**: Generates figures with the total predicted cases for each season.  
 * **`compute_the_scores.ipynb`**: Calculates the WIS score for each model across all states and validation tests.  
 * **`plot_scores.ipynb`**: Generates heatmap tables with WIS scores for each Brazilian region and highlights the best-performing models for both states and regions.  
 * **`plot_series.ipynb`**: Plots the predicted time series for each model across states and validation tests.  
@@ -260,16 +263,19 @@ where $Q_\theta(\gamma_j)$ denotes the $\gamma_j$-quantile of the log-normal dis
 
 Quantiles equal to zero are excluded from the optimization when they correspond to percentiles below the median (50th percentile). If the median itself is zero, we fix $\mu = 0.01$ and $\sigma = 0.5$ as as the parameters of the distribution.
 
-2. **Sampling**: Using the $\mu$ and $\sigma$ parameters obtained for each week, we generated 1,000 samples from the log-normal distribution of that week. These weekly samples were then summed across all weeks, resulting in a final array of 1,000 samples representing the total cases for the season.
+2. **Sampling**: In order to sample paths from probabilistic forecasts, we use Gaussian Copulas to generate time-dependent paths.
+The dependence structure is imposed via the autocorrelation parameter $\rho$ estimated from the historical series.
+The process transforms the sampled values into uniform quantiles and then into correlated Gaussian variables,
+generating new values through a linear relationship $Z_{t+1} = \rho Z_t + \sqrt{1-\rho^2}\varepsilon_t$. The values are then
+mapped back to the original marginals, producing sample paths that preserve the predicted distributions
+and that have a temporal dependence structure similar to the historical data. 
 
-3. **Prediction intervals**: From the summed values, we calculated the 50%, 80%, 90%, and 95% prediction intervals, along with the median, thus obtaining a probabilistic estimate of the total cases for the season. In addition, we plotted the 95% prediction interval and the median against the observed values for each season and state. 
-
-4. **Evaluation**: Based on these probabilistic predictions, we compared the estimated total cases with the observed totals and computed the WIS.  
+3. **Evaluation**: Based on these probabilistic predictions, we compared the estimated total cases with the observed totals and computed the WIS.  
 
 The steps were implemented across different notebooks:  
 - Step 1: `log_normal_parameters_CDF.ipynb`  
-- Steps 2–3: `compute_the_total_cases.ipynb`  
-- Step 4: (WIS plots): `plot_scores.ipynb`  
+- Steps 2: `compute_the_total_cases.ipynb`  
+- Step 3: (WIS plots): `plot_scores.ipynb`  
 
 
 ###  Best-performing models per region
