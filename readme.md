@@ -15,7 +15,7 @@ The challenge involves three validation tests and one forecast target. The perio
 
 **Forecast.** Predict the weekly number of dengue cases in Brazil, and by state (UF), in the 2025-2026 season \[EW 41 2025- EW40 2026\], using data covering the period from EW 01 2010 to EW 25 2025;
 
-**This file presents the models’ performance on the validation data. The forecast results for the 2026 season are available [here](https://github.com/Mosqlimate-project/2nd_IMDC_sprint_results/blob/main/ensemble_results.md).**
+This file presents the models’ performance on the validation data. **The forecast results for the 2026 season, generated with our ensemble model, are available [here](https://github.com/Mosqlimate-project/2nd_IMDC_sprint_results/blob/main/ensemble_results.md).**
 
 ## Teams and models
 
